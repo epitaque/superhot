@@ -1,0 +1,35 @@
+"AddonInfo"
+{
+	"TeamCount"		"1"
+	"superhot_1"
+	{
+		"MaxPlayers"		"1"
+	}
+    "Default_Keys"
+    {
+        "01"
+        {
+            "Key"       "W"
+            "Command"   "+KeyPressUp"
+            "Name"      "Move Up"
+        }
+        "02"
+        {
+            "Key"       "A"
+            "Command"   "+KeyPressLeft"
+            "Name"      "Move Left"
+        }
+        "03"
+        {
+            "Key"       "S"
+            "Command"   "+KeyPressDown"
+            "Name"      "Move Down"
+        }
+        "04"
+        {
+            "Key"       "D"
+            "Command"   "+KeyPressRight"
+            "Name"      "Move Right"
+        }
+    }
+}

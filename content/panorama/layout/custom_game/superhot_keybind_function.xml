@@ -1,0 +1,7 @@
+<root>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/superhot_keybind_function.js" /> 
+	</scripts>
+	<Panel hittest="false">
+	</Panel>
+</root>

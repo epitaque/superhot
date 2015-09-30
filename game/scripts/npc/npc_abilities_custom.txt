@@ -1,0 +1,203 @@
+
+// Dota Abilities Override File
+"DOTAAbilities"
+{
+	"Version"	 "1"
+	
+	"example_ability"
+	{
+		"ID"							"1852"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"sniper_assassinate"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"5000"
+		"AbilityCastPoint"				"0.01"
+		"AbilityCooldown"				"1.0"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
+		"AbilityDamage"					"400"
+		"MaxLevel"						"1"		
+
+		"precache"
+		{
+			//"particle"					"particles/sniper_base_attack.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
+		}
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"300"
+		"SideShop"						"1"
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"abilities/gun.lua"
+				"Function"				"StartGesture"
+				//"Target"				"POINT"
+				//"ProjectileSpeed"		"%projectile_speed"
+				//"ProjectileRadius"		"%projectile_radius"
+				//"ProjectileDistance"	"%projectile_distance"
+			}
+			"RunScript"
+			{
+				"ScriptFile"			"abilities/gun.lua"
+				"Function"				"DelayedFire"
+				"Target"				"POINT"
+				"ProjectileSpeed"		"%projectile_speed"
+				"ProjectileRadius"		"%projectile_radius"
+				"ProjectileDistance"	"%projectile_distance"
+				"EffectName"			"particles/clinkz_base_attack.vpcf"
+			}
+			//"LinearProjectile"
+			//{
+			//	"Target"      	 "POINT"
+			//	"EffectName"	 "particles/econ/items/mirana/mirana_crescent_arrow/mirana_spell_crescent_arrow.vpcf"
+			//	"MoveSpeed"		 "%projectile_speed"
+			//	"StartRadius"	 "%projectile_radius"
+			//	"StartPosition"  "attach_attack1"
+			//	"EndRadius"      "%projectile_radius"
+			//	"HasFrontalCone" "0"
+			//	"FixedDistance"  "%projectile_distance"
+			//	"TargetTeams"	 "DOTA_UNIT_TARGET_TEAM_ENEMY"
+			//	"TargetTypes"	 "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+			//	"TargetFlags"	 "DOTA_UNIT_TARGET_FLAG_NONE"						
+			//	"ProvidesVision" "1"
+			//	"VisionRadius" 	 "%vision_radius"
+			//	"SourceAttachment"	"DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+			//}
+
+		}
+		
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"Damage"
+			{
+				"Target"		"TARGET"
+				"Type"			"DAMAGE_TYPE_PURE"
+				"Damage"		"%AbilityDamage"
+			}
+		}
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"projectile_speed"		"800"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"projectile_radius"		"200"
+			}
+			
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"projectile_distance"	"3000"
+			}
+		}
+	}
+	
+//-------------------
+// Dummy stuff
+//-------------------
+	
+	"dummy_unit"
+	{
+		"AbilityBehavior"		 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"					 "ability_datadriven"
+		"AbilityTextureName"						"rubick_empty1"
+		"MaxLevel"											"1"
+		
+		"Modifiers"
+		{
+			"dummy_unit"
+			{
+					"Passive"												"1"
+					"IsHidden"												"1"		
+					"States"
+					{
+							"MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
+							"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+							"MODIFIER_STATE_NOT_ON_MINIMAP" "MODIFIER_STATE_VALUE_ENABLED"
+							"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
+					}
+			}
+		}
+	}
+	
+	"barebones_empty1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"5343"														// unique ID number for this ability.	Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"			 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"						"0"
+		"BaseClass"					 "ability_datadriven"
+		"AbilityTextureName"						"rubick_empty1"
+	}
+	
+	"barebones_empty2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"5343"														// unique ID number for this ability.	Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"			 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"						"0"
+		"BaseClass"					 "ability_datadriven"
+		"AbilityTextureName"						"rubick_empty1"
+	}
+	
+	"barebones_empty3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"5343"														// unique ID number for this ability.	Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"			 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"						"0"
+		"BaseClass"					 "ability_datadriven"
+		"AbilityTextureName"						"rubick_empty1"
+	}
+	
+	"barebones_empty4"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"5343"														// unique ID number for this ability.	Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"			 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"						"0"
+		"BaseClass"					 "ability_datadriven"
+		"AbilityTextureName"						"rubick_empty1"
+	}
+	
+	"barebones_empty5"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"5343"														// unique ID number for this ability.	Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"			 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"						"0"
+		"BaseClass"					 "ability_datadriven"
+		"AbilityTextureName"						"rubick_empty1"
+	}
+	
+	"barebones_empty6"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"5343"														// unique ID number for this ability.	Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"			 "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"						"0"
+		"BaseClass"					 "ability_datadriven"
+		"AbilityTextureName"						"rubick_empty1"
+	}
+}
+

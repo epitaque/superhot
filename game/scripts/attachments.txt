@@ -1,0 +1,21 @@
+"Attachments"
+{
+	"models/sourcetest/cube.vmdl"
+	{
+		"attach_attack2"
+		{
+			"models/superhot/pistol.vmdl"
+			{
+				"scale"		"0.06"
+				"pitch"		"105"
+				"model"		"models/superhot/pistol.vmdl"
+				"yaw"		"79"
+				"XPos"		"-1"
+				"YPos"		"-5"
+				"attach"	"attach_attack2"
+				"ZPos"		"-1"
+				"roll"		"266"
+			}
+		}
+	}
+}
