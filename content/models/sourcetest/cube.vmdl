@@ -117,7 +117,7 @@ CVModel CVModel_0
 	float m_flFbxScale = 1.000000
 	float m_flQCScale = 1.000000
 	float(3) m_vOrigin = ( 0.000000, 0.000000, 0.000000 )
-	CVPsf* m_pvPsf = NULL
+	CVPsfList* m_pPsfList = NULL
 	string m_keyValueText = ""
 	bool m_bStaticProp = false
 	bool m_bEnableClothProcessing = true
@@ -372,7 +372,7 @@ CVanimGroup CVanimGroup_0
 			string m_Filepath = "models/sourcetest/anims/FirePistol.smd"
 			int m_nStartframe = 0
 			int m_nEndframe = 16
-			float m_flFps = 300.000000
+			float m_flFps = 20.000000
 			CAnimationLoop m_Loop = CAnimationLoop
 			{
 				bool m_bLoop = false

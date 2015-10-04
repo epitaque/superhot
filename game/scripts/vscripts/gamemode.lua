@@ -14,18 +14,21 @@ require("internal/gamemode")
 require("internal/events")
 require("settings")
 require("events")
+require("libraries/attachments")
 
 -- SUPERHOT--
 require("superhot_util")
 require("superhot_time")
 require("superhot_commands")
 require("superhot_level")
-
+require("superhot_item_system")
 require("ai/pistol_ai")
-require("libraries/attachments")
 
-require("lua_modifiers/modifier_slow_lua")
-require("lua_modifiers/modifier_slow_cooldown_lua")
+-- MODIFIERS --
+require("lua_modifiers/modifier_timeslow_creep")
+require("lua_modifiers/modifier_timeslow_player")
+require("lua_modifiers/modifier_timespeed_player")
+require("lua_modifiers/modifier_item_pistol")
 
 function GameMode:OnFirstPlayerLoaded()
 end
@@ -37,8 +40,11 @@ function GameMode:OnGameInProgress()
 end
 
 function GameMode:OnHeroInGame(hero)
-	hero.item = CreateItem("item_player_pistol_superhot", hero, hero)
+	hero.item = CreateItem("item_pistol_lua", hero, hero)
 	hero:AddItem(hero.item)
+
+	-- Automatically pickup items
+	GameMode:StartItemLoop(hero)
 
 	-- Time
 	GameRules:GetGameModeEntity():SetExecuteOrderFilter( Dynamic_Wrap( GameMode, "OnOrderIssued" ), self )
@@ -88,11 +94,12 @@ function GameMode:InitGameMode()
 	GameMode:_InitGameMode()
 	Convars:SetFloat("host_timescale", 1)
 
-	GameMode.PlayerHero = nil
+	GameMode.SlowPercent = 95
 
 	GameMode.items = {"item_player_pistol_superhot"}
 
 	GameMode.CurrentLevel = 0
+	GameMode.CurrentWeapon = nil
 
 	GameMode.PlayerIsInCastAnimation = false
 	GameMode.GlobalSlow = true

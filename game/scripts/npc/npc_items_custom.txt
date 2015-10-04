@@ -1,5 +1,53 @@
 "DOTAAbilities"
 {
+	// Lua pistol
+	"item_pistol_lua"
+	{
+		"ID"							"1856"
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/pistol/pistol.lua"
+
+		"AbilityTextureName"			"item_example_item"
+		"Model"							"models/superhot/pistol.vmdl"
+	
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityCastRange"				"5000"
+		"AbilityCastPoint"				"0.15"
+		"AbilityCooldown"				"2.5"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY1"
+
+		"precache"
+		{
+			"particle"					"particles/clinkz_base_attack.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
+		}
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"projectile_speed"		"180"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"projectile_radius"		"25"
+			}
+			
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"projectile_distance"	"3000"
+			}
+		}
+	}
+
 	// Pistol
 	"item_pistol_superhot"
 	{
@@ -14,7 +62,7 @@
 		"AbilityCastPoint"				"0"
 		"AbilityCooldown"				"1.0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
-		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY1"
 		"AbilityDamage"					"2"
 		"MaxLevel"						"1"		
 

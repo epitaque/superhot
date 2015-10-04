@@ -4,6 +4,8 @@
 {
 	"Version"	 "1"
 	
+	// Pistol Item
+
 	"example_ability"
 	{
 		"ID"							"1852"

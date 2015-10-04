@@ -57,9 +57,11 @@ end
 
 function GameMode:SlowTime()
 	print("Slowing time.")
-	GameMode.GlobalSlow = true
-	
+	GameMode.GlobalSlow = true	
 	local entsToBeRemoved = {}
+
+	GameMode.PlayerHero:RemoveModifierByName("modifier_timespeed_player_lua")
+	GameMode.PlayerHero:AddNewModifier(GameMode.PlayerHero, nil, "modifier_timeslow_player_lua", {duration=-1})
 
 	for entityIndex, entity in pairs(GameMode.EntitiesToBeSlowed) do
 		if IsValidEntity(entity) then
@@ -80,6 +82,9 @@ function GameMode:SpeedTime()
 
 	local entsToBeRemoved = {}
 
+	GameMode.PlayerHero:RemoveModifierByName("modifier_timeslow_player_lua")
+	GameMode.PlayerHero:AddNewModifier(GameMode.PlayerHero, nil, "modifier_timespeed_player_lua", {duration=-1})
+
 	for entityIndex, entity in pairs(GameMode.EntitiesToBeSlowed) do
 		if IsValidEntity(entity) then
 			GameMode:UnslowEntity(entity)
@@ -99,7 +104,7 @@ function GameMode:SlowEntity(entity)
 		--local dir = entity:GetPhysicsVelocity():Normalized()
 		--entity:SetPhysicsVelocity(dir * 20)
 	else
-		entity:AddNewModifier(entity, nil, "modifier_slow_lua", {duration=-1})
+		entity:AddNewModifier(entity, nil, "modifier_timeslow_creep_lua", {duration=-1})
 	end
 end
 
@@ -109,6 +114,6 @@ function GameMode:UnslowEntity(entity)
 		--local dir = entity:GetPhysicsVelocity():Normalized()
 		--entity:SetPhysicsVelocity(dir * 1800)
 	else
-		entity:RemoveModifierByName("modifier_slow_lua")
+		entity:RemoveModifierByName("modifier_timeslow_creep_lua")
 	end
 end
